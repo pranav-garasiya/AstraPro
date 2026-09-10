@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Profile - AstraPro Worker</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="setup-page-bg">
+
+    <div class="setup-container">
+        <!-- Header -->
+        <div class="setup-header">
+            <h1>Complete Your Profile</h1>
+            <p>Set up your worker profile to start receiving job requests near you.</p>
+        </div>
+
+        <!-- Form Wrapper -->
+        <div class="setup-form-wrapper">
+            <form action="worker-dashboard.html" method="GET" id="worker-setup-form">
+                
+                <!-- Section 1: Basic Information -->
+                <div class="setup-section">
+                    <h2 class="setup-section-title"><i class="fa-solid fa-user"></i> Basic Information</h2>
+                    
+                    <div class="photo-upload-wrapper">
+                        <div class="photo-preview" id="photo-preview">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <div class="photo-upload-btn">
+                            <button type="button" class="btn btn-outline"><i class="fa-solid fa-upload" style="margin-right: 8px;"></i> Upload Photo</button>
+                            <input type="file" id="profile-photo" accept="image/*" onchange="previewImage(event)">
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" class="custom-input" placeholder="e.g. Ramesh Kumar" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="mobile-num">Mobile Number</label>
+                            <input type="tel" id="mobile-num" class="custom-input" placeholder="+91 98765 43210" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0; grid-column: 1 / -1;">
+                            <label for="email-id">Email Address</label>
+                            <input type="email" id="email-id" class="custom-input" placeholder="ramesh@example.com" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Professional Details -->
+                <div class="setup-section">
+                    <h2 class="setup-section-title"><i class="fa-solid fa-briefcase"></i> Professional Details</h2>
+                    
+                    <div class="form-grid-2">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="service-category">Primary Service Category</label>
+                            <select id="service-category" class="custom-select" required>
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="electrical">Electrical</option>
+                                <option value="plumbing">Plumbing</option>
+                                <option value="cleaning">Home Cleaning</option>
+                                <option value="carpenter">Carpenter</option>
+                                <option value="painting">Painting</option>
+                                <option value="ac">AC & Cooling</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="experience">Years of Experience</label>
+                            <select id="experience" class="custom-select" required>
+                                <option value="" disabled selected>Select Experience</option>
+                                <option value="0-1">0-1 Years (Beginner)</option>
+                                <option value="2-4">2-4 Years (Intermediate)</option>
+                                <option value="5-8">5-8 Years (Expert)</option>
+                                <option value="9+">9+ Years (Master)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label for="skills">Key Skills (Comma separated)</label>
+                        <input type="text" id="skills" class="custom-input" placeholder="e.g. Fan installation, Wiring repair, Inverter setup" required>
+                    </div>
+
+                    <div class="form-grid-2" style="margin-top: 20px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="service-area">Service Area (City/Pincode)</label>
+                            <input type="text" id="service-area" class="custom-input" placeholder="e.g. Ahmedabad, 380015" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="languages">Languages Known</label>
+                            <input type="text" id="languages" class="custom-input" placeholder="e.g. Gujarati, Hindi" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Payment Details -->
+                <div class="setup-section">
+                    <h2 class="setup-section-title"><i class="fa-solid fa-building-columns"></i> Payment Details</h2>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">Where should we send your earnings?</p>
+                    
+                    <div class="form-group">
+                        <label for="upi-id">UPI ID (Recommended)</label>
+                        <input type="text" id="upi-id" class="custom-input" placeholder="e.g. ramesh@okicici">
+                    </div>
+                    
+                    <div class="form-grid-2" style="margin-top: 20px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="bank-acc">Bank Account Number</label>
+                            <input type="password" id="bank-acc" class="custom-input" placeholder="Enter A/C Number">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="ifsc">IFSC Code</label>
+                            <input type="text" id="ifsc" class="custom-input" placeholder="e.g. HDFC0001234">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Terms -->
+                <div class="setup-section" style="margin-bottom: 30px;">
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">
+                            I agree to the <strong>AstraPro Co-op Terms & Conditions</strong>. I confirm that the information provided is accurate and I consent to background verification for security purposes. I also agree to the 8% platform fee deduction per job.
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div style="text-align: right;">
+                    <button type="submit" class="btn btn-primary" style="padding: 14px 40px; font-size: 1.1rem; width: 100%;">Complete Profile & Go to Dashboard <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function(){
+                const output = document.getElementById('photo-preview');
+                output.innerHTML = `<img src="${reader.result}" style="width: 100%; height: 100%; object-fit: cover;">`;
+            };
+            if(event.target.files[0]){
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>

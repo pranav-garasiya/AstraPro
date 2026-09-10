@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Dashboard - AstraPro</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="dashboard-layout">
+
+    <!-- Sidebar (Hidden on Mobile) -->
+    <aside class="dashboard-sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="logo">Astra<span style="color: var(--secondary);">Pro</span></a>
+            <button class="sidebar-close" id="sidebar-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#" class="active"><i class="fa-solid fa-house"></i> Home Dashboard</a></li>
+                <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Job History</a></li>
+                <li><a href="#"><i class="fa-solid fa-chart-line"></i> Earnings Report</a></li>
+                <li><a href="#"><i class="fa-solid fa-headset"></i> Co-op Admin Helpline</a></li>
+                <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="index.html" style="display: block; color: #ef4444; font-size: 0.9rem; font-weight: 500;"><i class="fa-solid fa-arrow-right-from-bracket" style="margin-right: 8px;"></i> Logout</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Topbar -->
+        <header class="dashboard-topbar">
+            <div class="topbar-left">
+                <button class="sidebar-toggle" id="sidebar-toggle"><i class="fa-solid fa-bars"></i></button>
+                <div class="topbar-profile">
+                    <div class="worker-avatar">R</div>
+                    <div class="worker-info-mini">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <h4 style="margin:0; font-size: 1rem;">Ramesh Kumar</h4>
+                            <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified Co-op Worker</span>
+                        </div>
+                        <p style="margin:0; font-size: 0.85rem; color: var(--text-muted);">Certified Electrician</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topbar-right">
+                <div class="status-toggle">
+                    <span class="status-label" id="status-text">Offline</span>
+                    <label class="switch">
+                        <input type="checkbox" id="status-checkbox">
+                        <span class="slider" id="status-slider"></span>
+                    </label>
+                </div>
+                <div class="notification-icon" style="font-size: 1.2rem; color: var(--text-muted); cursor: pointer;">
+                    <i class="fa-regular fa-bell"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            
+            <!-- Daily Earnings & Performance Stats Grid (4 Metric Cards) -->
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="stat-card">
+                    <div class="stat-icon earnings"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                    <div class="stat-info">
+                        <h3>₹1,250</h3>
+                        <p>Today's Earnings</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon jobs"><i class="fa-solid fa-check-double"></i></div>
+                    <div class="stat-info">
+                        <h3>4 Orders</h3>
+                        <p>Jobs Completed</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: rgba(239, 68, 68, 0.1); color: #ef4444;"><i class="fa-solid fa-percent"></i></div>
+                    <div class="stat-info">
+                        <h3>₹100</h3>
+                        <p>Platform Fee (8%)</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon rating"><i class="fa-solid fa-star"></i></div>
+                    <div class="stat-info">
+                        <h3>4.9 <span style="font-size:1rem; color:var(--text-muted); font-weight:400;">/ 5.0</span></h3>
+                        <p>Worker Rating</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Incoming Live Job Alert Card -->
+            <section class="dashboard-section" id="incoming-alert" style="display: none;">
+                <div class="alert-card rounded-lg">
+                    <div class="alert-header">
+                        <i class="fa-solid fa-bell fa-shake"></i> New Nearby Booking Request!
+                    </div>
+                    <div class="job-card" style="margin: 0; padding: 20px;">
+                        <div class="job-info" style="width: 100%;">
+                            <div class="job-icon" style="color: var(--color-electrical);"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+                            <div class="job-details" style="flex: 1;">
+                                <h4>Ceiling Fan & Wiring Repair</h4>
+                                <div class="job-meta">
+                                    <span><i class="fa-solid fa-location-dot"></i> 2.5 KM away (Vastrapur)</span>
+                                </div>
+                                <div class="job-price" style="text-align: left; margin-bottom: 5px;">
+                                    Est. Payout: ₹350 <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 400;">(Base Rate + Distance Fee)</span>
+                                </div>
+                                <div class="job-actions" style="margin-top: 15px;">
+                                    <button class="btn btn-success" onclick="acceptJob()">Accept Job</button>
+                                    <button class="btn btn-danger" onclick="declineJob()">Decline</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Active Job Tracking Section -->
+            <section class="dashboard-section">
+                <div class="section-header-flex">
+                    <h2>Active Job Tracking</h2>
+                </div>
+                
+                <div class="job-card active-job-tracker">
+                    <div style="width: 100%;">
+                        <div class="job-info">
+                            <div class="job-icon" style="background-color: var(--primary); color: white;"><i class="fa-solid fa-person-digging"></i></div>
+                            <div class="job-details" style="flex: 1;">
+                                <h4>AC Deep Cleaning</h4>
+                                <div class="job-meta">
+                                    <span><i class="fa-solid fa-user"></i> Customer: Neha Shah</span>
+                                    <span><i class="fa-solid fa-location-dot"></i> A-402, Shaligram Flats, Bopal, Ahmedabad</span>
+                                </div>
+                                <div class="job-price" style="text-align: left; font-size: 1.1rem;">Est. Payout: ₹900</div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="tracker-actions">
+                            <a href="tel:+919876543210" class="btn-icon" title="Call Customer"><i class="fa-solid fa-phone"></i></a>
+                            <a href="#" class="btn btn-outline btn-sm" style="display: inline-flex; gap: 8px;"><i class="fa-solid fa-map-location-dot"></i> Navigate via Google Maps</a>
+                            <button class="btn btn-primary btn-sm" id="btn-arrived" onclick="document.getElementById('otp-section').style.display='block'; this.style.display='none';">I Have Arrived at Location</button>
+                        </div>
+
+                        <!-- OTP Section (Hidden initially) -->
+                        <div id="otp-section" style="display: none; margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 20px;">
+                            <p style="font-weight: 500; margin-bottom: 5px;">Start Job Verification</p>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Ask the customer for the 4-digit OTP to start the work.</p>
+                            
+                            <div class="otp-container">
+                                <div class="otp-inputs">
+                                    <input type="text" maxlength="1" class="otp-input" autofocus>
+                                    <input type="text" maxlength="1" class="otp-input">
+                                    <input type="text" maxlength="1" class="otp-input">
+                                    <input type="text" maxlength="1" class="otp-input">
+                                </div>
+                                <button class="btn btn-primary btn-sm" onclick="document.getElementById('complete-section').style.display='block'; this.style.display='none';">Verify OTP</button>
+                            </div>
+                        </div>
+
+                        <!-- Complete Job Section -->
+                        <div id="complete-section" style="display: none; margin-top: 20px;">
+                            <button class="btn btn-success w-100" style="width: 100%; padding: 12px; font-size: 1.1rem;"><i class="fa-solid fa-check-circle" style="margin-right: 8px;"></i> Complete Job & Confirm Payment</button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Quick Links Footer / Bottom Nav (Visible on Mobile) -->
+    <nav class="bottom-nav">
+        <a href="#" class="bottom-nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="#" class="bottom-nav-item">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>History</span>
+        </a>
+        <a href="#" class="bottom-nav-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Earnings</span>
+        </a>
+        <a href="#" class="bottom-nav-item">
+            <i class="fa-solid fa-headset"></i>
+            <span>Helpline</span>
+        </a>
+    </nav>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./js/supabase.js"></script>
+    <!-- Dashboard Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sidebar Toggle
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggleBtn = document.getElementById('sidebar-toggle');
+            const sidebarCloseBtn = document.getElementById('sidebar-close');
+
+            if (sidebarToggleBtn && sidebar) {
+                sidebarToggleBtn.addEventListener('click', () => { sidebar.classList.add('active'); });
+            }
+            if (sidebarCloseBtn && sidebar) {
+                sidebarCloseBtn.addEventListener('click', () => { sidebar.classList.remove('active'); });
+            }
+
+            // Status Toggle (Online/Offline)
+            const statusCheckbox = document.getElementById('status-checkbox');
+            const statusText = document.getElementById('status-text');
+            const statusSlider = document.getElementById('status-slider');
+            const incomingAlert = document.getElementById('incoming-alert');
+
+            if (statusCheckbox && statusText) {
+                statusCheckbox.addEventListener('change', (e) => {
+                    if (e.target.checked) {
+                        statusText.textContent = 'Online';
+                        statusText.classList.add('online');
+                        statusSlider.classList.add('glowing');
+                        
+                        // Simulate an incoming job request after 2 seconds of going online
+                        setTimeout(() => {
+                            incomingAlert.style.display = 'block';
+                        }, 2000);
+
+                    } else {
+                        statusText.textContent = 'Offline';
+                        statusText.classList.remove('online');
+                        statusSlider.classList.remove('glowing');
+                        incomingAlert.style.display = 'none';
+                    }
+                });
+            }
+
+            // OTP Input auto-focus logic
+            const otpInputs = document.querySelectorAll('.otp-input');
+            otpInputs.forEach((input, index) => {
+                input.addEventListener('input', (e) => {
+                    if(e.target.value.length === 1 && index < otpInputs.length - 1) {
+                        otpInputs[index + 1].focus();
+                    }
+                });
+                input.addEventListener('keydown', (e) => {
+                    if(e.key === 'Backspace' && e.target.value === '' && index > 0) {
+                        otpInputs[index - 1].focus();
+                    }
+                });
+            });
+        });
+
+        function acceptJob() {
+            alert('Job Accepted successfully!');
+            document.getElementById('incoming-alert').style.display = 'none';
+        }
+        function declineJob() {
+            document.getElementById('incoming-alert').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
