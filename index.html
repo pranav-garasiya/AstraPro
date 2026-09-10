@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstraPro - Your Trusted Home Services Expert</title>
+    <meta name="description" content="AstraPro offers premium, skilled professionals for all your home service needs including plumbing, electrical, cleaning, and more.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Astra<span>Pro</span></a>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Service</a></li>
+                    <li><a href="#how-it-works">How it works</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="search-btn" aria-label="Search"><i class="fa-solid fa-search"></i></button>
+                <div class="auth-buttons">
+                    <a href="auth-customer.html" class="btn btn-outline">Login</a>
+                    <a href="auth-customer.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="badge">#1 Trusted Service App</span>
+                <h1>Expert Home Services,<br> Delivered at Your <span class="highlight">Doorstep</span></h1>
+                <p>From plumbing to painting, find skilled and verified gig workers instantly. Quality service, transparent pricing, and peace of mind guaranteed.</p>
+                
+                <div class="hero-search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="What service do you need? (e.g., AC Repair)">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <strong>50k+</strong>
+                        <span>Happy Customers</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>10k+</strong>
+                        <span>Verified Pros</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>4.8/5</strong>
+                        <span>Average Rating</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <!-- Placeholder for hero image, styled with CSS gradient for now -->
+                    <div class="hero-visual">
+                        <div class="service-float card-1">
+                            <i class="fa-solid fa-wrench"></i>
+                            <div>
+                                <h4>Plumbing</h4>
+                                <p>Fixing pipes</p>
+                            </div>
+                        </div>
+                        <div class="service-float card-2">
+                            <i class="fa-solid fa-bolt"></i>
+                            <div>
+                                <h4>Electrical</h4>
+                                <p>Safe wiring</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Premium <span class="highlight">Services</span></h2>
+                <p>Whatever you need, we have a certified professional ready to help.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1. Plumbing -->
+                <div class="service-card">
+                    <div class="service-icon plumbing"><i class="fa-solid fa-faucet-drip"></i></div>
+                    <h3>Plumbing</h3>
+                    <p>Tap repair, pipe leaks, drain cleaning, and new installations.</p>
+                    <a href="#" class="service-link">View Subservices <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 2. Electrical -->
+                <div class="service-card">
+                    <div class="service-icon electrical"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+                    <h3>Electrical</h3>
+                    <p>Wiring, appliance setup, switches, and emergency repairs.</p>
+                    <a href="#" class="service-link">View Subservices <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 3. Home Cleaning -->
+                <div class="service-card">
+                    <div class="service-icon cleaning"><i class="fa-solid fa-broom"></i></div>
+                    <h3>Home Cleaning</h3>
+                    <p>Deep cleaning, sofas, carpets, and move-in/out sanitization.</p>
+                    <a href="#" class="service-link">View Subservices <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 4. Carpenter -->
+                <div class="service-card">
+                    <div class="service-icon carpenter"><i class="fa-solid fa-hammer"></i></div>
+                    <h3>Carpenter</h3>
+                    <p>Furniture repair, assembly, custom furniture, and doors.</p>
+                    <a href="#" class="service-link">View Subservices <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 5. Painting -->
+                <div class="service-card">
+                    <div class="service-icon painting"><i class="fa-solid fa-paint-roller"></i></div>
+                    <h3>Painting</h3>
+                    <p>Exterior, interior, texture painting, and waterproofing.</p>
+                    <a href="#" class="service-link">View Subservices <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 6. AC & Cooling -->
+                <div class="service-card">
+                    <div class="service-icon ac"><i class="fa-solid fa-snowflake"></i></div>
+                    <h3>AC & Cooling</h3>
+                    <p>Service, repair, gas charging, and uninstallation.</p>
+                    <a href="#" class="service-link">View Subservices <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 7. Appliance Repair -->
+                <div class="service-card">
+                    <div class="service-icon appliance"><i class="fa-solid fa-blender"></i></div>
+                    <h3>Appliance Repair</h3>
+                    <p>Washing machines, TVs, microwaves, and refrigerators.</p>
+                    <a href="#" class="service-link">View Subservices <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 8. Gardening & Outdoor -->
+                <div class="service-card">
+                    <div class="service-icon gardening"><i class="fa-solid fa-leaf"></i></div>
+                    <h3>Gardening</h3>
+                    <p>Lawn maintenance, plant care, and outdoor setups.</p>
+                    <a href="#" class="service-link">View Subservices <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 9. Vehicle & Driver -->
+                <div class="service-card">
+                    <div class="service-icon vehicle"><i class="fa-solid fa-car"></i></div>
+                    <h3>Vehicle & Driver</h3>
+                    <p>Personal drivers, outstation trips, and basic cleaning.</p>
+                    <a href="#" class="service-link">View Subservices <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 10. General Home Services -->
+                <div class="service-card">
+                    <div class="service-icon general"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <h3>General Services</h3>
+                    <p>Curtains, TV mounting, furniture moving, and minor fixes.</p>
+                    <a href="#" class="service-link">View Subservices <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="services-cta">
+                <a href="#" class="btn btn-outline">Explore All Categories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section class="how-it-works section" id="how-it-works">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>How AstraPro <span class="highlight">Works</span></h2>
+                <p>Simple steps to get your job done or start earning.</p>
+            </div>
+
+            <div class="hiw-toggle">
+                <button class="toggle-btn active" onclick="toggleHIW('users')">For Users</button>
+                <button class="toggle-btn" onclick="toggleHIW('pros')">For Professionals</button>
+            </div>
+
+            <div class="hiw-content active" id="hiw-users">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon"><i class="fa-solid fa-list-check"></i></div>
+                    <h3>Select Service</h3>
+                    <p>Choose from our wide range of home services based on your need.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h3>Pick a Schedule</h3>
+                    <p>Select a convenient date and time for the professional to arrive.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon"><i class="fa-solid fa-face-smile"></i></div>
+                    <h3>Relax & Enjoy</h3>
+                    <p>Our verified pro gets the job done while you sit back and relax.</p>
+                </div>
+            </div>
+
+            <div class="hiw-content" id="hiw-pros" style="display: none;">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon"><i class="fa-solid fa-id-card"></i></div>
+                    <h3>Register Profile</h3>
+                    <p>Sign up and list your skills, experience, and service categories.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Get Verified</h3>
+                    <p>Complete our background check to earn the verified badge.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+                    <h3>Start Earning</h3>
+                    <p>Accept bookings, provide great service, and get paid instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us / Why Choose Us -->
+    <section class="about section" id="about">
+        <div class="container about-container">
+            <div class="about-image">
+                <div class="about-visual">
+                    <div class="glass-card">
+                        <i class="fa-solid fa-shield-check text-success"></i>
+                        <h4>100% Secure</h4>
+                        <p>Verified Professionals</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-content">
+                <h2>Why Choose <span class="highlight">AstraPro</span>?</h2>
+                <p>We believe finding reliable help shouldn't be a chore. AstraPro connects you with top-rated gig workers in your area, ensuring safety, quality, and transparency.</p>
+                
+                <ul class="features-list">
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div>
+                            <h4>Vetted Professionals</h4>
+                            <p>Every worker goes through strict background and skill checks.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div>
+                            <h4>Transparent Pricing</h4>
+                            <p>No hidden charges. Know the estimated cost before booking.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div>
+                            <h4>Satisfaction Guarantee</h4>
+                            <p>If you're not happy with the service, we'll make it right.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="#services" class="btn btn-primary mt-2">Book a Service Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action (For Workers) -->
+    <section class="cta section">
+        <div class="container cta-container">
+            <div class="cta-content">
+                <h2>Are you a skilled professional?</h2>
+                <p>Join AstraPro's network of top-rated gig workers. Be your own boss, set your schedule, and grow your income.</p>
+                <a href="auth-worker.html" class="btn btn-white">Join as a Professional</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#" class="logo footer-logo">Astra<span>Pro</span></a>
+                <p>Your one-stop destination for reliable, high-quality home services delivered by trusted local professionals.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Customers</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">All Services</a></li>
+                    <li><a href="#how-it-works">How to Book</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Professionals</h3>
+                <ul>
+                    <li><a href="#">Join AstraPro</a></li>
+                    <li><a href="#">Pro App</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">Community Guidelines</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> 123 Tech Park, Gujarat, India</li>
+                    <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fa-solid fa-envelope"></i> support@astrapro.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 AstraPro. All rights reserved. <a href="login-admin.html" style="color: #94a3b8; font-size: 0.8rem; margin-left: 10px; text-decoration: none;">Admin Login</a></p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./js/main.js"></script>
+</body>
+</html>

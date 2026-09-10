@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gig Worker Portal - AstraPro</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="auth-page">
+    <a href="index.html" class="back-to-home"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    
+    <div class="auth-container">
+        <!-- Sidebar Branding -->
+        <div class="auth-sidebar" style="background: linear-gradient(45deg, #0f172a, #334155);">
+            <a href="index.html" class="logo" style="color: white; margin-bottom: 40px; font-size: 2rem;">Astra<span style="color: var(--secondary);">Pro</span></a>
+            <h2>Join Our Pro Network</h2>
+            <p>Be your own boss, set your schedule, and grow your income by providing top-notch home services.</p>
+        </div>
+
+        <!-- Form Area -->
+        <div class="auth-form-area">
+            <div class="auth-header">
+                <h3>Gig Worker Portal</h3>
+                <p>Login to manage your jobs or apply to become a pro.</p>
+            </div>
+
+            <div class="form-toggle">
+                <button class="active" onclick="toggleAuth('login')">Login</button>
+                <button onclick="toggleAuth('signup')">Apply as Pro</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-form" class="auth-form-content active">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <div style="text-align: right; margin-bottom: 20px;">
+                        <a href="#" style="color: var(--primary); font-size: 0.9rem; font-weight: 500;">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary auth-btn" style="background-color: #0f172a;">Login to Dashboard</button>
+                </form>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div id="signup-form" class="auth-form-content">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-email">Email Address</label>
+                            <input type="email" id="signup-email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-phone">Mobile Number</label>
+                            <input type="tel" id="signup-phone" placeholder="+91 98765 43210" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service-category">Primary Skill / Service Category</label>
+                        <select id="service-category" required>
+                            <option value="" disabled selected>Select a category</option>
+                            <option value="plumbing">Plumbing</option>
+                            <option value="electrical">Electrical</option>
+                            <option value="cleaning">Home Cleaning</option>
+                            <option value="carpenter">Carpenter</option>
+                            <option value="painting">Painting</option>
+                            <option value="ac">AC & Cooling</option>
+                            <option value="appliance">Appliance Repair</option>
+                            <option value="gardening">Gardening & Outdoor</option>
+                            <option value="vehicle">Vehicle & Driver Services</option>
+                            <option value="general">General Home Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="Create a strong password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary auth-btn" style="background-color: #0f172a;">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAuth(type) {
+            const btns = document.querySelectorAll('.form-toggle button');
+            const forms = document.querySelectorAll('.auth-form-content');
+            
+            btns.forEach(btn => btn.classList.remove('active'));
+            forms.forEach(form => form.classList.remove('active'));
+            
+            if (type === 'login') {
+                btns[0].classList.add('active');
+                document.getElementById('login-form').classList.add('active');
+            } else {
+                btns[1].classList.add('active');
+                document.getElementById('signup-form').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
